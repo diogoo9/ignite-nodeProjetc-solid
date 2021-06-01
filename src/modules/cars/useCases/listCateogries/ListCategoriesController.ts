@@ -5,7 +5,7 @@ class ListCategoryController {
 
     constructor(private listCategoriesUSeCase: ListCategoriesUseCase) { }
 
-    handle(request: Request, response: Response) {
+    handle(request: Request, response: Response): Response {
         const all = this.listCategoriesUSeCase.execute();
 
         return response.json(all);

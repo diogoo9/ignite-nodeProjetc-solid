@@ -6,4 +6,16 @@
  - D — `Dependency Inversion Principle` (Princípio da inversão da dependência)
 
 
+## Docker comands
+  - $ docker build 
+  - $ docker ps
+  - $ docker-compose up
+  - $ docker-compose up -d
+  - $ docker logs IMAGE_NAME -f
+  - $ docker exec -it IMAGE_NAME /bin/bash
+  - $ docker-compose up --force-recreate 
+  - $ docker exec database_ignite cat /etc/hosts #to see IPs
+
+  network_mode to work in too rede
+
 

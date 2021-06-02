@@ -4,7 +4,7 @@ import { CreateSpecificationUseCase } from "./CreateSpeficationUseCase";
 
 
 
-const specificationRepository = new SpecificationRepository();
+const specificationRepository = null;
 const createSpecificationUseCase = new CreateSpecificationUseCase(specificationRepository);
 const createSpecificationController = new CreateSpecificationController(createSpecificationUseCase);
 

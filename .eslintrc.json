@@ -7,8 +7,10 @@
     "extends": [
         "plugin:react/recommended",
         "airbnb",
+        "prettier",
         "plugin:@typescript-eslint/recommended",
-        "eslint-plugin-import-helpers"
+        "eslint-plugin-import-helpers",
+        "plugin:prettier/recommended"
     ],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
@@ -19,11 +21,13 @@
     },
     "plugins": [
         "react",
-        "@typescript-eslint"
+        "@typescript-eslint",
+        "prettier"
     ],
     "rules": {
         "camelcase": "off",
         "import/no-unresolved": "error",
+        "prettier/prettier": "error",
         "@typescript-eslint/naming-convention": [
             "error",
             {

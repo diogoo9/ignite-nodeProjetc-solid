@@ -10,9 +10,6 @@ class User {
   name: string;
 
   @Column()
-  username: string;
-
-  @Column()
   email: string;
 
   @Column()
@@ -21,7 +18,7 @@ class User {
   @Column()
   driver_license: string;
 
-  @Column("is_admin")
+  @Column({ name: "is_admin" })
   isAdmin: string;
 
   @Column()

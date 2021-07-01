@@ -1,9 +1,8 @@
+import { AppError } from "@shared/errors/AppError";
+import { IUsersRepository } from "@modules/accounts/repositories/IUsersRepository";
 import { compare } from "bcrypt";
 import { sign } from "jsonwebtoken";
 import { inject, injectable } from "tsyringe";
-import { AppError } from "../../../../errors/AppError";
-import { User } from "../../entities/User";
-import { UserRepository } from "../../repositories/implementations/UsersRepository";
 
 interface IRequest {
   email: string;
@@ -21,14 +20,14 @@ interface IResponse {
 class AuthenticateUserUseCase {
   constructor(
     @inject("UserRepository")
-    private userRepositoy: UserRepository
+    private userRepositoy: IUsersRepository
   ) {}
   async execute({ email, password }: IRequest): Promise<IResponse> {
     //user exist
     const user = await this.userRepositoy.findByEmail(email);
 
     if (!user) {
-      throw new Error("User or password incorrect!");
+      throw new AppError("User or password incorrect!");
     }
     // senha correta
     const passwordMatch = await compare(password, user.password);

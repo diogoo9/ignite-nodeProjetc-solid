@@ -24,7 +24,7 @@ network_mode to work in too rede
 usgin tsyringe
 all injections configured in shared/container/index.ts
 
-## Reduce depences link
+## Reduce dependences link
 
 config your tsconfig in
 
@@ -67,3 +67,8 @@ moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths, {
 ## Responsabilidades
 
 a aplicacao tem entities que dependem do typeorm
+
+# TDD
+
+this module speak about TDD - Test-Driven Development
+![TDD](https://marsner.com/wp-content/uploads/test-driven-development-TDD.png)

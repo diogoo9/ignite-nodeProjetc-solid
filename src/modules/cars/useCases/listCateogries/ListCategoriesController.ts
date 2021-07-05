@@ -3,16 +3,14 @@ import { container } from "tsyringe";
 import { ListCategoriesUseCase } from "./ListCategoriesUseCase";
 
 class ListCategoryController {
+  constructor() {}
 
-    constructor() { }
+  async handle(request: Request, response: Response): Promise<Response> {
+    const lilistCategoriesUSeCase = container.resolve(ListCategoriesUseCase);
+    const all = await lilistCategoriesUSeCase.execute();
 
-    async handle(request: Request, response: Response): Promise<Response> {
-
-        const lilistCategoriesUSeCase = await container.resolve(ListCategoriesUseCase);
-        const all = await lilistCategoriesUSeCase.execute();
-
-        return response.json(all);
-    }
+    return response.json(all);
+  }
 }
 
 export { ListCategoryController };

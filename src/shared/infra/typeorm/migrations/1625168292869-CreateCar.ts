@@ -24,16 +24,16 @@ export class CreateCar1625168292869 implements MigrationInterface {
             type: "numeric",
           },
           {
-            name: "avaiable",
+            name: "available",
             type: "boolean",
             default: true,
           },
           {
-            name: "licence_plate",
+            name: "license_plate",
             type: "varchar",
           },
           {
-            name: "final_amount",
+            name: "fine_amount",
             type: "numeric",
           },
           {

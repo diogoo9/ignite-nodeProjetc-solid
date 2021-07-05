@@ -17,7 +17,8 @@ Deve ser possivel cadastrar um novo carro.
 Nao deve ser possivel cadastrar um carro com uma placa ja cadastrada.
 Nao deve ser possivel alterar a placa de um carro ja cadastrado.
 O carro ao ser cadastrado deve ter a disponibilidade por padrao.
-O usuario responsavel pelo cadastro deve ser um administrador
+
+\*O usuario responsavel pelo cadastro deve ser um administrador
 
 # LIstagem de carros
 

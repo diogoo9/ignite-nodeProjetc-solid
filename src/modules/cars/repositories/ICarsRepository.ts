@@ -4,6 +4,12 @@ import { Car } from "../infra/typeorm/entities/Car";
 interface ICarsRepository {
   create(data: ICreateCarDTO): Promise<Car>;
   findByLicencePlate(licencePlate: string): Promise<Car>;
+  findAllAlailable(
+    brand: string,
+    category_id?: string,
+    name?: string
+  ): Promise<Car[]>;
+  findById(car_id: string): Promise<Car>;
 }
 
 export { ICarsRepository };

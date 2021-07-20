@@ -10,7 +10,7 @@ import {
 } from "typeorm";
 import { v4 as uuid4 } from "uuid";
 import { Category } from "./Category";
-import { Specifiation } from "./Specification";
+import { Specification } from "./Specification";
 
 @Entity("cars")
 class Car {
@@ -27,7 +27,7 @@ class Car {
   daily_rate: number;
 
   @Column({ default: true })
-  available: boolean;
+  available: boolean = true;
 
   @Column()
   license_plate: string;
@@ -45,13 +45,13 @@ class Car {
   @JoinColumn({ name: "category_id" })
   category: Category;
 
-  @ManyToMany(() => Specifiation)
+  @ManyToMany(() => Specification)
   @JoinTable({
     name: "specifications_cars",
-    joinColumns: [{ name: "id" }],
-    inverseJoinColumns: [{ name: "car_id" }],
+    joinColumns: [{ name: "car_id" }], // que liga essa
+    inverseJoinColumns: [{ name: "specification_id" }], // que liga da outra
   })
-  specifitaions: Specifiation[];
+  specifications: Specification[];
 
   @Column()
   category_id: string;

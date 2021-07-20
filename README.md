@@ -64,6 +64,11 @@ moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths, {
  }),
 ```
 
+## Tests
+
+- units -> jest
+- integration -> supertest
+
 ## Responsabilidades
 
 a aplicacao tem entities que dependem do typeorm

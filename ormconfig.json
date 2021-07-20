@@ -5,6 +5,7 @@
     "username": "docker",
     "password": "ignite",
     "database": "rentx",
+    "logging": false,
     "entities": [
         "./src/modules/**/entities/*.ts"
     ],

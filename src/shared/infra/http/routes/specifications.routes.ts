@@ -4,15 +4,15 @@ import { Router } from "express";
 import { ensureAdmin } from "../middlewares/ensureAdmin";
 import { ensureAuthenticated } from "../middlewares/ensureAuthenticated";
 
-const specifitationRoutes = Router();
+const specificationRoutes = Router();
 
 const createSpecificationController = new CreateSpecificationController();
 
-specifitationRoutes.post(
+specificationRoutes.post(
   "/",
   ensureAuthenticated,
   ensureAdmin,
   createSpecificationController.handler
 );
 
-export { specifitationRoutes };
+export { specificationRoutes };

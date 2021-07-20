@@ -1,3 +1,4 @@
+import { Category } from "@modules/cars/infra/typeorm/entities/Category";
 import { Request, Response } from "express";
 import { container } from "tsyringe";
 import { CreateCategoryUseCase } from "./CreateCategoryUseCase";
@@ -8,9 +9,9 @@ class CreateCategoryController {
 
     const createCategoryUseCase = container.resolve(CreateCategoryUseCase);
 
-    await createCategoryUseCase.execute({ name, description });
+    const category = await createCategoryUseCase.execute({ name, description });
 
-    return response.status(201).send();
+    return response.status(201).send(category);
   }
 }
 

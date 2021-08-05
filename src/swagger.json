@@ -78,6 +78,9 @@
         "tags": ["Category"],
         "summary": "Upload a new category",
         "description": "Upload a new category",
+        "security": [
+          {"bearerAuth":[]}
+        ],
         "requestBody": {
           "content": {
             "multipart/form-data": {
@@ -105,6 +108,9 @@
         "tags": ["Specifications"],
         "summary": "Create specification",
         "description": "Create a new specification",
+        "security": [
+          {"bearerAuth":[]}
+        ],
         "requestBody": {
           "content": {
             "application/json": {
@@ -141,6 +147,10 @@
                   "password":{
                     "type": "string"
                   }
+                },
+                "example":{
+                  "email":"admin@admin.com.br",
+                  "password":"12345"
                 }
               }
             }
@@ -155,6 +165,84 @@
           }
         }
       }      
+    },
+    "/cars":{
+      "post":{
+        "tags":["cars"],
+        "summary":"Create a new car",
+        "description":"Create a new Car",
+        "requestBody":{
+          "content":{
+            "application/json":{              
+              "schema":{
+                "$ref":"#/definitions/Car",
+                "example":{
+                  "type":"object",
+                  "name":"Focus",
+                  "description":"speed car 2.0",
+                  "daily_rate":1,
+                  "license_plate":"xxx-1234",
+                  "fine_amount":5,
+                  "brand":"Ford",
+                  "category_id":"121212152"
+                }
+              }  
+            }
+          }
+        },
+        "responses":{
+          "201":{
+            "description":"Created!"
+          },
+          "400":{
+            "description":"Car already exists"
+          }
+        }
+      }
+    },
+    "/cars/images/{id}":{
+      "post":{
+        "tags": ["cars"],
+        "description": "Upload images",
+        "summary": "Upload images",
+        "security": [
+          {"bearerAuth":[]}
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Card id",
+            "required": true,
+            "schema":{
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody":{
+          "content": {
+            "multipart/form-data":{
+              "schema":{
+                "type": "object",
+                "properties": {
+                  "images":{
+                    "type": "array",
+                    "items":{
+                      "type": "string",
+                      "format": "binary"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201":{
+            "description": "Created!"
+          }
+        }
+      }
     }
   },
   "definitions": {
@@ -166,6 +254,32 @@
         },
         "description": {
           "type": "string"
+        }
+      }
+    },
+    "Car":{
+      "type":"object",
+      "properties":{
+        "name":{
+          "type":"string"
+        },
+        "description":{
+          "type":"string"
+        },
+        "daily_rate":{
+          "type":"number"
+        },
+        "license_plate":{
+          "type":"string"
+        },
+        "fine_amount":{
+          "type":"number"
+        },
+        "brand":{
+          "type":"string"
+        },
+        "category_id":{
+          "type":"string"
         }
       }
     }
